@@ -15,7 +15,7 @@ import logo from "@/assets/logo.webp";
 export default function VolunteerForm() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
-      <Card className="w-full max-w-4xl p-6 rounded-xl shadow-md">
+      <Card className="w-full max-w-4xl py-6 px-2 rounded-xl shadow-md">
         <form className="w-full">
           <CardHeader className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
