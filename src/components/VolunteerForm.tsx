@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -10,45 +9,39 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import logo from "@/assets/logo.webp";
 
 export default function VolunteerForm() {
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Volunteer Form</CardTitle>
-        <CardDescription>
-          Join our initiative and be part of change.
-        </CardDescription>
-        <CardAction>
-          <img
-            src={logo}
-            alt="Basti Ki Pathshala"
-            className="size-10 bg-gray-100 rounded-full"
-          />
-        </CardAction>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="flex flex-col gap-6">
+    <div className="min-h-screen w-full flex items-center justify-center">
+      <Card className="w-full max-w-4xl p-6 rounded-xl shadow-md">
+        <form className="w-full">
+          <CardHeader className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <CardTitle className="text-3xl text-primary">
+                Volunteer Form
+              </CardTitle>
+              <CardDescription className="mt-1">
+                Join our initiative and be a part of the change.
+              </CardDescription>
+            </div>
+            <img
+              src={logo}
+              alt="Basti Ki Pathshala"
+              className="size-14 bg-white rounded-full shadow"
+            />
+          </CardHeader>
+
+          <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             <div className="grid gap-2">
               <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Your full name"
-                required
-              />
+              <Input id="name" type="text" placeholder="Your full name" required />
             </div>
 
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                required
-              />
+              <Input id="email" type="email" placeholder="you@example.com" required />
             </div>
 
             <div className="grid gap-2">
@@ -58,51 +51,36 @@ export default function VolunteerForm() {
 
             <div className="grid gap-2">
               <Label htmlFor="age">Age</Label>
-              <Input
-                id="age"
-                type="number"
-                min="12"
-                max="100"
-                placeholder="e.g. 18"
-                required
-              />
+              <Input id="age" type="number" min="12" max="100" placeholder="e.g. 18" required />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid gap-2 md:col-span-2">
               <Label htmlFor="role">Preferred Volunteering Role</Label>
-              <Input
-                id="role"
-                type="text"
-                placeholder="e.g. Teaching, Event Help..."
-              />
+              <Input id="role" type="text" placeholder="e.g. Teaching, Event Help..." />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid gap-2 md:col-span-2">
               <Label htmlFor="availability">Availability (Days)</Label>
-              <Input
-                id="availability"
-                type="text"
-                placeholder="e.g. Weekends, Mon-Fri evenings..."
-              />
+              <Input id="availability" type="text" placeholder="e.g. Weekends, Mon-Fri evenings..." />
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid gap-2 md:col-span-2">
               <Label htmlFor="motivation">Why do you want to volunteer?</Label>
-              <textarea
+              <Textarea
                 id="motivation"
                 placeholder="Briefly tell us your motivation..."
-                rows={3}
-                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm"
+                rows={4}
               />
             </div>
-          </div>
+          </CardContent>
+
+          <CardFooter className="flex justify-end mt-6">
+            <Button type="submit" className="w-full md:w-40">
+              Submit
+            </Button>
+          </CardFooter>
         </form>
-      </CardContent>
-      <CardFooter className="flex-col gap-2">
-        <Button type="submit" variant={"CTA"} className="w-full">
-          Submit
-        </Button>
-      </CardFooter>
-    </Card>
+      </Card>
+    </div>
   );
 }
